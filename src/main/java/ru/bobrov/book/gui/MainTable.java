@@ -17,7 +17,6 @@ import java.util.Observer;
  */
 public class MainTable implements Observer {
 
-    private JFrame frame;
     private JTable listTable;
     private ListTableModel listTableModel;
     private JTextField searchDishName;
@@ -33,7 +32,7 @@ public class MainTable implements Observer {
 
     public void go () {
 
-        frame = new JFrame("Список рецептов");
+        JFrame frame = new JFrame("Список рецептов");
         frame.setSize(new Dimension(600, 400));
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new WindowListener() {

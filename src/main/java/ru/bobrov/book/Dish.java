@@ -31,10 +31,6 @@ public class Dish implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ArrayList<String[]> getComposition() {
         return composition;
     }

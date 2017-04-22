@@ -14,25 +14,12 @@ public class Ingredient {
 
     }
 
-    public Ingredient(String name, Calories calories) {
-        this.name = name;
-        this.calories = calories;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Calories getCalories() {
         return calories;
-    }
-
-    public void setCalories(Calories calories) {
-        this.calories = calories;
     }
 
     @Override
