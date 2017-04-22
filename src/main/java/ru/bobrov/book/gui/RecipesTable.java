@@ -15,15 +15,16 @@ import java.awt.event.ActionListener;
  * Created by Rabbik on 18.04.2017.
  * Форма просмотра и редактирования рецептов
  */
-public class RecipesTable {
+class RecipesTable {
 
     private JTextField timeTextField;
     private IngredientTableModel ingredientTableModel;
     private JTextArea textAreaRecept;
+    private JFrame frame;
 
 
      void seeRecept(final Dish dish) {
-        final JFrame frame = new JFrame("Блюдо: " + dish.getName());
+        frame = new JFrame("Блюдо: " + dish.getName());
         frame.setSize(new Dimension(1000, 400));
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);

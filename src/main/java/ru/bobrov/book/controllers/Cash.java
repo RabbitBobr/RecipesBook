@@ -4,9 +4,8 @@ import ru.bobrov.book.Calories;
 import ru.bobrov.book.Dish;
 import ru.bobrov.book.Ingredient;
 
-import javax.swing.*;
+
 import java.io.*;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -17,7 +16,7 @@ import java.util.Observable;
  */
 public class Cash extends Observable {
     private static Cash ourInstance = new Cash();
-    private final String PATH_TO_RESOURCES = "src/main/resources/";
+    private final String PATH_TO_RESOURCES = "classes/";
     private File fileIngredients = new File(PATH_TO_RESOURCES + "Ingredients.txt");
     private File fileData = new File(PATH_TO_RESOURCES + "data.txt");
 
@@ -31,7 +30,7 @@ public class Cash extends Observable {
     private Cash()  {
             String [] str;
 
-                   try ( BufferedReader reader = new BufferedReader(new FileReader(fileIngredients)))
+                   try ( BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileIngredients), "UTF-8")))
 
                 {
                 String outString;
@@ -47,7 +46,7 @@ public class Cash extends Observable {
                 ex.getMessage();
             }
 
-            try (BufferedReader reader = new BufferedReader(new FileReader(fileData)))
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileData), "UTF-8")))
             {
                 String outString;
                 while((outString = reader.readLine()) != null) {
@@ -207,8 +206,8 @@ public class Cash extends Observable {
 
     public void saveData() {
 
-        try(BufferedWriter writeData = new BufferedWriter(new FileWriter(fileData, false));
-            BufferedWriter writeIngredients = new BufferedWriter(new FileWriter(fileIngredients, false))) {
+        try(BufferedWriter writeData = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileData), "UTF-8"));
+            BufferedWriter writeIngredients = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileIngredients), "UTF-8"))) {
             for (String[] s : listTable) {
                 writeData.write(Integer.parseInt(s[0])+"_"+s[1]+"_"+s[2]+"\n");
             }
